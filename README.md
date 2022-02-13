@@ -1,6 +1,8 @@
 # superhero_data_analysis
 For this human-centered data science project, I analyzed some data on the Gender characteristics of Superheroes and Villains to determine the ratio of female characters that appear in comic books compared to their male counterparts.
 
+| ITEM (DATA TYPE): DESCRIPTION | 
+
 name (string): Name of each Superhero/Villain, 
 gender (string): Gender identity of each comic book character, 
 eye_color (string): Eye color of each character,
