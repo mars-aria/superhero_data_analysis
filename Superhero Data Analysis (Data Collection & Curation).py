@@ -15,45 +15,35 @@
 
 # In[1]:
 
-
 import pandas as pd
 
 import numpy as np
 
 df = pd.read_csv('heroes_information.csv')
 
-
 # I start my data analysis process by seeing where the data begins and where it ends.
 
 # In[2]:
 
-
 #where the data begins
 df.head()
 
-
 # In[3]:
-
 
 #where the data ends
 df.tail()
-
 
 # I use the len() function to find out the length of the data set:
 
 # In[4]:
 
-
 print(len(df))
-
 
 # I also find out the the data frame type by using the type() function:
 
 # In[5]:
 
-
 print(type(df))
-
 
 # # Counting the Data (Total Sum)
 
@@ -61,37 +51,28 @@ print(type(df))
 
 # In[6]:
 
-
 df['Gender']
-
 
 # I also perform a test by calling the start index number of the "Gender" column:
 
 # In[7]:
 
-
 df['Gender'][0]
-
 
 # # Checking the Data Types
 
 # Here I use the type() function to find out the data type of the "Gender" column:
-# 
 
 # In[8]:
 
-
 print(type(df['Gender']))
-
 
 # I also print the column types using the type() function:
 
 # In[9]:
 
-
 for col in df.columns:
     print(col, type(df[col][0]))
-
 
 # # Quantitative Characteristics (Descriptive Statistical Data)
 
@@ -99,9 +80,7 @@ for col in df.columns:
 
 # In[10]:
 
-
 df.describe()
-
 
 # # Checking for Null Values in the Data
 
@@ -109,9 +88,7 @@ df.describe()
 
 # In[11]:
 
-
 df.isnull().sum()
-
 
 # # Cleaning the Data (Curation)
 
@@ -119,59 +96,44 @@ df.isnull().sum()
 
 # In[12]:
 
-
 df["Publisher"].fillna("none", inplace = True)
 df.isnull().sum()
 
-
 # In[13]:
-
 
 df["Weight"].fillna("none", inplace = True)
 df.isnull().sum()
-
 
 # I also remove the "Unnamed" column using the drop() function since it appears to have low relevance to my analysis.
 
 # In[14]:
 
-
 df.drop(df.columns[[0]], axis = 1, inplace = True)
-
 
 # Lastly, I check the start and end of the data again to make sure the adjustments have been made correctly. 
 
 # In[15]:
 
-
 df.head()
-
 
 # In[16]:
 
-
 df.tail()
-
 
 # # Counting the Data (Individual Sums)
 
 # Here I count the separate sums of male and female values in the "Gender" column: 
-# 
 
 # In[17]:
 
-
 df['Gender'].value_counts()
-
 
 # Then I assign a variable to the total sum of "Gender" values:
 
 # In[18]:
 
-
 #assigning a variable to the total sum of gender values
 gender_counts = df['Gender'].value_counts()
-
 
 # # Renaming a Value 
 
@@ -179,17 +141,14 @@ gender_counts = df['Gender'].value_counts()
 
 # In[19]:
 
-
 #rename "-" value as "Other" in the Gender col
 
 df['Gender'] = df['Gender'].replace({'-': 'Other',
                                     })
 
-
 # # Visualizing the Data (Results)
 
 # In[20]:
-
 
 import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
@@ -215,7 +174,6 @@ plt.legend(handles=[bar_1,bar_2,bar_3], loc='upper right', title='Legend')
 #show value names on the x-axis
 plt.xticks(x_pos, bars, rotation=0, fontweight ='bold', fontsize = 10)
 plt.show()
-
 
 # # Analyzing the Results (Conclusion) 
 
